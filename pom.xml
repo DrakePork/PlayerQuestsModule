@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.drakepork</groupId>
-    <artifactId>PlayerQuestModule</artifactId>
+    <artifactId>PlayerQuestsModule</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
