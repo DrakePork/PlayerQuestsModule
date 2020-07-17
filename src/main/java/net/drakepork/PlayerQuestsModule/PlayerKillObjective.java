@@ -21,29 +21,10 @@ public class PlayerKillObjective extends CustomObjective implements Listener {
 		this.setAuthor("DrakePork");
 		this.setShowCount(true);
 		this.setCountPrompt("Enter how many times to kill this/these players");
-		this.addStringPrompt("kill Type", "Write \"Permission\" or \"Player\" to define how to select kill target(s)", null);
+		this.addStringPrompt("Kill Type", "Write \"Permission\" or \"Player\" to define how to select kill target(s)", null);
 		this.addStringPrompt("Permission/Player Name", "Set permission or player to check for on player killed", null);
 		this.addStringPrompt("Objective Name", "Set name of objective", "Kill Specified Player(s)");
 		this.setDisplay("%Objective Name%: %count%");
-	}
-
-	@EventHandler
-	public void iSmiteYou(PlayerChatEvent event) {
-		if(event.getPlayer().equals(Bukkit.getPlayer("DrakePork"))) {
-			String text = event.getMessage();
-			String[] words = text.split(" ");
-			for(int i = 0; i < words.length; i++) {
-				if(words[i].contains("smite")) {
-					if(Bukkit.getPlayer(words[i+2]) != null || !Bukkit.getPlayer(words[i+2]).isEmpty()) {
-						Player player = Bukkit.getPlayer(words[i+2]);
-						if(player.equals(Bukkit.getPlayer(UUID.fromString("bc67e253-ddee-4fc9-8675-97943b6ab0a3"))) || player.equals(Bukkit.getPlayer(UUID.fromString("26f1453c-986d-42a5-a72b-95833a65aa73")))) {
-							Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "cmi smite " + player.getName());
-						}
-					}
-					break;
-				}
-			}
-		}
 	}
 
 	@EventHandler
