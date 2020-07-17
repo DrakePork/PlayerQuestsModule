@@ -34,7 +34,7 @@ public class PlayerKillObjective extends CustomObjective implements Listener {
 			Player killed = event.getEntity().getPlayer();
 			for (Quest quest : qp.getQuester(killer.getUniqueId()).getCurrentQuests().keySet()) {
 				Map<String, Object> map = getDataForPlayer(killer, this, quest);
-				String killType = (String) map.get("kill Type");
+				String killType = (String) map.get("Kill Type");
 				if(killType.equalsIgnoreCase("permission")) {
 					String permission = (String) map.get("Permission/Player Name");
 					if (killed.hasPermission(permission)) {
