@@ -33,13 +33,19 @@
         <dependency>
             <groupId>java.me.blackvein</groupId>
             <artifactId>quests</artifactId>
-            <version>3.9.5</version>
+            <version>4.0.0-rc.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.Zrips.CMI</groupId>
             <artifactId>CMI</artifactId>
             <version>8.7.1.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.drakepork</groupId>
+            <artifactId>RoyalAsylumCore</artifactId>
+            <version>1.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

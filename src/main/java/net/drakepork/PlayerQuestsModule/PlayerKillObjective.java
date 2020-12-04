@@ -8,10 +8,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerChatEvent;
 
 import java.util.Map;
-import java.util.UUID;
 
 public class PlayerKillObjective extends CustomObjective implements Listener {
 	Quests qp = (Quests) Bukkit.getServer().getPluginManager().getPlugin("Quests");
@@ -34,16 +32,18 @@ public class PlayerKillObjective extends CustomObjective implements Listener {
 			Player killed = event.getEntity().getPlayer();
 			for (Quest quest : qp.getQuester(killer.getUniqueId()).getCurrentQuests().keySet()) {
 				Map<String, Object> map = getDataForPlayer(killer, this, quest);
-				String killType = (String) map.get("Kill Type");
-				if(killType.equalsIgnoreCase("permission")) {
-					String permission = (String) map.get("Permission/Player Name");
-					if (killed.hasPermission(permission)) {
-						incrementObjective(killer, this, 1, quest);
-					}
-				} else if(killType.equalsIgnoreCase("player")) {
-					Player killedP = Bukkit.getPlayer((String) map.get("Permission/Player Name"));
-					if(killed.equals(killedP)) {
-						incrementObjective(killer, this, 1, quest);
+				if(map.get("Kill Type") != null) {
+					String killType = (String) map.get("Kill Type");
+					if (killType.equalsIgnoreCase("permission")) {
+						String permission = (String) map.get("Permission/Player Name");
+						if (killed.hasPermission(permission)) {
+							incrementObjective(killer, this, 1, quest);
+						}
+					} else if (killType.equalsIgnoreCase("player")) {
+						Player killedP = Bukkit.getPlayer((String) map.get("Permission/Player Name"));
+						if (killed.equals(killedP)) {
+							incrementObjective(killer, this, 1, quest);
+						}
 					}
 				}
 			}

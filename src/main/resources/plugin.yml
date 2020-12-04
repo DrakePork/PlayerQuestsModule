@@ -3,4 +3,4 @@ version: 1.0
 description: Quests module for Specific Player interactions or permision based player interactions
 author: DrakePork
 main: net.drakepork.PlayerQuestsModule
-depend: [Quests]
+depend: [Quests, RoyalAsylumCore]
